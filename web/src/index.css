@@ -613,6 +613,35 @@ html {
   font-family: "Raleway", sans-serif;
 }
 
+.modal-open {
+  transform: scale(1) !important;
+  opacity: 1 !important;
+}
+
+/* width */
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 .space-y-0 > :not(template) ~ :not(template){
   --space-y-reverse: 0;
   margin-top: calc(0px * calc(1 - var(--space-y-reverse)));
@@ -7763,6 +7792,10 @@ html {
 
 .max-h-screen{
   max-height: 100vh;
+}
+
+.max-h--200{
+  max-height: 200px;
 }
 
 .max-w-none{
@@ -21829,6 +21862,10 @@ html {
 
   .sm\:max-h-screen{
     max-height: 100vh;
+  }
+
+  .sm\:max-h--200{
+    max-height: 200px;
   }
 
   .sm\:max-w-none{
@@ -35898,6 +35935,10 @@ html {
     max-height: 100vh;
   }
 
+  .md\:max-h--200{
+    max-height: 200px;
+  }
+
   .md\:max-w-none{
     max-width: none;
   }
@@ -49965,6 +50006,10 @@ html {
     max-height: 100vh;
   }
 
+  .lg\:max-h--200{
+    max-height: 200px;
+  }
+
   .lg\:max-w-none{
     max-width: none;
   }
@@ -64030,6 +64075,10 @@ html {
 
   .xl\:max-h-screen{
     max-height: 100vh;
+  }
+
+  .xl\:max-h--200{
+    max-height: 200px;
   }
 
   .xl\:max-w-none{

@@ -76,6 +76,23 @@ app.post("/breeds", async (req, res) => {
   }
 });
 
+app.get("breeds/popular", async (req, res) => {
+  try {
+    const result = await db
+      .collection("breeds")
+      .orderBy("views", "desc")
+      .limit(10)
+      .get();
+    let popularBreeds = [];
+    result.forEach((snap) => {
+      popularBreeds.push(snap.data());
+    });
+    return res.status(200).send(popularBreeds);
+  } catch (e) {
+    console.log(`Errror`, e);
+  }
+});
+
 exports.app = functions.https.onRequest(app);
 
 // // Create and Deploy Your First Cloud Functions

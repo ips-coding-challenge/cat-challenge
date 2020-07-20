@@ -10,6 +10,9 @@ module.exports = {
         rale: ["Raleway", "sans-serif"],
         logo: ["Mystery Quest", "sans-serif"],
       },
+      maxHeight: {
+        "-200": "200px",
+      },
       height: {
         "hero-sm": "160px",
         "hero-md": "320px",
