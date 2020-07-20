@@ -4,6 +4,7 @@ const initialState = {
   error: null,
   showModal: false,
   loading: true,
+  selectedBreed: null,
 };
 
 const reducer = (state = initialState, action) => {
@@ -18,6 +19,9 @@ const reducer = (state = initialState, action) => {
       return { ...state, popularBreeds: action.payload };
     case "SET_SHOW_MODAL":
       return { ...state, showModal: action.payload };
+    case "SET_SELECTED_BREED":
+      console.log(`SET_SELECTED_BREED CALLED`);
+      return { ...state, selectedBreed: action.payload };
     default:
       return state;
   }

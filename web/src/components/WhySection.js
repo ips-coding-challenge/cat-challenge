@@ -24,13 +24,9 @@ function WhySection() {
 
       {/* Little gallery */}
       <div className="grid grid-cols-5 grid-rows-5 gap-4">
+        <img className="col-span-3 row-span-2" src={image2} alt="" />
         <img
-          className="col-start-1 col-span-3 row-start-1 row-span-2"
-          src={image2}
-          alt=""
-        />
-        <img
-          className="h-full col-start-4 col-span-2 row-start-1 row-span-4  object-cove"
+          className="h-full col-span-2 row-span-4 object-cover rounded-base"
           src={image3}
           alt=""
         />

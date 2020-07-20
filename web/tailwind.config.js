@@ -16,7 +16,7 @@ module.exports = {
       height: {
         "hero-sm": "160px",
         "hero-md": "320px",
-        "hero-lg": "540px",
+        "hero-lg": "480px",
       },
       borderRadius: {
         // "t-base": [

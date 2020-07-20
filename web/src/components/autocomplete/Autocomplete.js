@@ -21,14 +21,14 @@ function Autocomplete() {
       `Filtered`,
       filtered.slice(0, 10).flatMap((f) => f.name)
     );
-    const final = filtered.map((f) => {
-      return {
-        id: f.id,
-        name: f.name,
-        description: f.description,
-      };
-    });
-    setResults(final);
+    // const final = filtered.map((f) => {
+    //   return {
+    //     id: f.id,
+    //     name: f.name,
+    //     description: f.description,
+    //   };
+    // });
+    setResults(filtered);
   };
 
   const handleClick = () => {
@@ -52,6 +52,30 @@ function Autocomplete() {
       console.log(`Mobile input ref`, mobileInputRef);
       mobileInputRef.current.focus();
     }
+    if (showModal) {
+      window.scrollTo(0, 0);
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+  }, [showModal]);
+
+  // Click outside the results on large screen should close the results
+  useEffect(() => {
+    const elResults = document.getElementById("results-lg");
+    if (elResults && !showModal) {
+      const clickOutside = (e) => {
+        if (!elResults.contains(e.target)) {
+          setResults([]);
+        }
+      };
+
+      document.addEventListener("mousedown", clickOutside);
+
+      return () => {
+        document.removeEventListener("mousedown", clickOutside);
+      };
+    }
   }, [showModal]);
 
   if (!showModal) {
@@ -70,12 +94,12 @@ function Autocomplete() {
           className="md:hidden color-text text-sm outline-none w-full cursor-pointer"
           type="text"
           placeholder="Search"
-          // onChange={autocomplete}
           onClick={handleClick}
         />
         <i className="material-icons md-48">search</i>
 
         <Results
+          id="results-lg"
           clazz="hidden md:block absolute rounded-base mt-20 bg-white left-0 top-0 w-full"
           results={results}
           showModal={showModal}
@@ -86,7 +110,7 @@ function Autocomplete() {
 
   return (
     <div
-      className={`fixed flex flex-col bg-white z-10 inset-0 p-4 scale-0 opacity-0 transition-all duration-500 ${
+      className={`fixed flex flex-col bg-white z-10 inset-0 p-4 scale-0 opacity-0 h-screen overflow-y-auto transition-all duration-500 ${
         showModal ? "modal-open" : ""
       }`}
     >

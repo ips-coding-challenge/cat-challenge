@@ -1,19 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "@reach/router";
 import { incrementViews } from "../../api/index";
 
-function Results({ clazz, results, showModal }) {
+function Results({ id, clazz, results, showModal }) {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const incrementPopularity = async (item) => {
     try {
       await incrementViews(item);
+      dispatch({ type: "SET_SELECTED_BREED", payload: item });
+      dispatch({ type: "SET_SHOW_MODAL", payload: false });
+      navigate(`/breeds/${item.id}`);
     } catch (e) {
       console.log(`Error`, e);
-    } finally {
-      // Go to the breed page
     }
   };
 
   return (
-    <div className={`z-20 ${clazz} ${showModal ? "h-hero-md" : ""}`}>
+    <div
+      id={id ? id : null}
+      className={`z-20 ${clazz} ${showModal ? "h-hero-md" : ""}`}
+    >
       {results.length > 0 && (
         <ul
           className={`${
