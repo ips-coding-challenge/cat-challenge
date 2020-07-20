@@ -76,7 +76,7 @@ app.post("/breeds", async (req, res) => {
   }
 });
 
-app.get("breeds/popular", async (req, res) => {
+app.get("/breeds/popular", async (req, res) => {
   try {
     const result = await db
       .collection("breeds")

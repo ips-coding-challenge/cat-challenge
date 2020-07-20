@@ -9,3 +9,7 @@ export const fetchBreeds = async () => {
 export const fetchPopularBreeds = async () => {
   return await axios.get("/breeds/popular");
 };
+
+export const incrementViews = async (params) => {
+  return await axios.post("/breeds", params);
+};

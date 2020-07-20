@@ -19,6 +19,8 @@
     "react": "^16.13.1",
     "react-debounce-input": "^3.2.2",
     "react-dom": "^16.13.1",
+    "react-fade-in": "^1.1.0",
+    "react-lazy-load-image-component": "^1.5.0",
     "react-redux": "^7.2.0",
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",

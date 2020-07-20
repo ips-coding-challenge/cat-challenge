@@ -27,6 +27,10 @@ module.exports = {
           "border-top-left-radius": "24px",
           "border-top-right-radius": "24px",
         },
+        "b-base": {
+          "border-bottom-left-radius": "24px",
+          "border-bottom-right-radius": "24px",
+        },
         base: "24px",
         double: "48px",
         extra: "59px",

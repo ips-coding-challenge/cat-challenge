@@ -21,7 +21,13 @@ function Autocomplete() {
       `Filtered`,
       filtered.slice(0, 10).flatMap((f) => f.name)
     );
-    const final = filtered.flatMap((f) => f.name);
+    const final = filtered.map((f) => {
+      return {
+        id: f.id,
+        name: f.name,
+        description: f.description,
+      };
+    });
     setResults(final);
   };
 
@@ -74,28 +80,13 @@ function Autocomplete() {
           results={results}
           showModal={showModal}
         />
-        {/* <div className="hidden md:block absolute rounded-base mt-20 bg-white left-0 top-0 w-full">
-          {results.length > 0 && (
-            <ul className="max-h--200 m-4 overflow-y-auto">
-              {results.slice(0, 10).map((name, i) => (
-                <li
-                  tabIndex="1"
-                  className="text-lg w-full p-4 rounded-lg cursor-pointer transition hover:bg-gray-300"
-                  key={i}
-                >
-                  {name}
-                </li>
-              ))}
-            </ul>
-          )}
-        </div> */}
       </div>
     );
   }
 
   return (
     <div
-      className={`fixed flex flex-col bg-white inset-0 p-4 scale-0 opacity-0 transition-all duration-500 ${
+      className={`fixed flex flex-col bg-white z-10 inset-0 p-4 scale-0 opacity-0 transition-all duration-500 ${
         showModal ? "modal-open" : ""
       }`}
     >
@@ -123,21 +114,6 @@ function Autocomplete() {
         results={results}
         showModal={showModal}
       />
-      {/* <div className="mt-6 overflow-y-auto">
-        {results.length > 0 && (
-          <ul className="mt-6">
-            {results.slice(0, 10).map((name, i) => (
-              <li
-                className="text-lg w-full p-4 rounded-lg cursor-pointer transition hover:bg-gray-300"
-                key={i}
-                tabIndex="1"
-              >
-                {name}
-              </li>
-            ))}
-          </ul>
-        )}
-      </div> */}
     </div>
   );
 }

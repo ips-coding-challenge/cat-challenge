@@ -618,6 +618,42 @@ html {
   opacity: 1 !important;
 }
 
+.text-search-breeds::after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  left: 0;
+  right: 0;
+  bottom: -5px;
+  border: 2px solid #4d270c;
+  border-radius: 9999px;
+}
+
+/* TRANSITIONS */
+
+.alert-enter {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.alert-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.alert-exit {
+  opacity: 1;
+}
+
+.alert-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
+}
+
+/* SCROLLBAR */
+
 /* width */
 
 ::-webkit-scrollbar {
@@ -5464,6 +5500,10 @@ html {
   border-radius: [object Object];
 }
 
+.rounded-b-base{
+  border-radius: [object Object];
+}
+
 .rounded-base{
   border-radius: 24px;
 }
@@ -5612,6 +5652,26 @@ html {
 }
 
 .rounded-l-t-base{
+  border-top-left-radius: [object Object];
+  border-bottom-left-radius: [object Object];
+}
+
+.rounded-t-b-base{
+  border-top-left-radius: [object Object];
+  border-top-right-radius: [object Object];
+}
+
+.rounded-r-b-base{
+  border-top-right-radius: [object Object];
+  border-bottom-right-radius: [object Object];
+}
+
+.rounded-b-b-base{
+  border-bottom-right-radius: [object Object];
+  border-bottom-left-radius: [object Object];
+}
+
+.rounded-l-b-base{
   border-top-left-radius: [object Object];
   border-bottom-left-radius: [object Object];
 }
@@ -5785,6 +5845,22 @@ html {
 }
 
 .rounded-bl-t-base{
+  border-bottom-left-radius: [object Object];
+}
+
+.rounded-tl-b-base{
+  border-top-left-radius: [object Object];
+}
+
+.rounded-tr-b-base{
+  border-top-right-radius: [object Object];
+}
+
+.rounded-br-b-base{
+  border-bottom-right-radius: [object Object];
+}
+
+.rounded-bl-b-base{
   border-bottom-left-radius: [object Object];
 }
 
@@ -19534,6 +19610,10 @@ html {
     border-radius: [object Object];
   }
 
+  .sm\:rounded-b-base{
+    border-radius: [object Object];
+  }
+
   .sm\:rounded-base{
     border-radius: 24px;
   }
@@ -19682,6 +19762,26 @@ html {
   }
 
   .sm\:rounded-l-t-base{
+    border-top-left-radius: [object Object];
+    border-bottom-left-radius: [object Object];
+  }
+
+  .sm\:rounded-t-b-base{
+    border-top-left-radius: [object Object];
+    border-top-right-radius: [object Object];
+  }
+
+  .sm\:rounded-r-b-base{
+    border-top-right-radius: [object Object];
+    border-bottom-right-radius: [object Object];
+  }
+
+  .sm\:rounded-b-b-base{
+    border-bottom-right-radius: [object Object];
+    border-bottom-left-radius: [object Object];
+  }
+
+  .sm\:rounded-l-b-base{
     border-top-left-radius: [object Object];
     border-bottom-left-radius: [object Object];
   }
@@ -19855,6 +19955,22 @@ html {
   }
 
   .sm\:rounded-bl-t-base{
+    border-bottom-left-radius: [object Object];
+  }
+
+  .sm\:rounded-tl-b-base{
+    border-top-left-radius: [object Object];
+  }
+
+  .sm\:rounded-tr-b-base{
+    border-top-right-radius: [object Object];
+  }
+
+  .sm\:rounded-br-b-base{
+    border-bottom-right-radius: [object Object];
+  }
+
+  .sm\:rounded-bl-b-base{
     border-bottom-left-radius: [object Object];
   }
 
@@ -33605,6 +33721,10 @@ html {
     border-radius: [object Object];
   }
 
+  .md\:rounded-b-base{
+    border-radius: [object Object];
+  }
+
   .md\:rounded-base{
     border-radius: 24px;
   }
@@ -33753,6 +33873,26 @@ html {
   }
 
   .md\:rounded-l-t-base{
+    border-top-left-radius: [object Object];
+    border-bottom-left-radius: [object Object];
+  }
+
+  .md\:rounded-t-b-base{
+    border-top-left-radius: [object Object];
+    border-top-right-radius: [object Object];
+  }
+
+  .md\:rounded-r-b-base{
+    border-top-right-radius: [object Object];
+    border-bottom-right-radius: [object Object];
+  }
+
+  .md\:rounded-b-b-base{
+    border-bottom-right-radius: [object Object];
+    border-bottom-left-radius: [object Object];
+  }
+
+  .md\:rounded-l-b-base{
     border-top-left-radius: [object Object];
     border-bottom-left-radius: [object Object];
   }
@@ -33926,6 +34066,22 @@ html {
   }
 
   .md\:rounded-bl-t-base{
+    border-bottom-left-radius: [object Object];
+  }
+
+  .md\:rounded-tl-b-base{
+    border-top-left-radius: [object Object];
+  }
+
+  .md\:rounded-tr-b-base{
+    border-top-right-radius: [object Object];
+  }
+
+  .md\:rounded-br-b-base{
+    border-bottom-right-radius: [object Object];
+  }
+
+  .md\:rounded-bl-b-base{
     border-bottom-left-radius: [object Object];
   }
 
@@ -47676,6 +47832,10 @@ html {
     border-radius: [object Object];
   }
 
+  .lg\:rounded-b-base{
+    border-radius: [object Object];
+  }
+
   .lg\:rounded-base{
     border-radius: 24px;
   }
@@ -47824,6 +47984,26 @@ html {
   }
 
   .lg\:rounded-l-t-base{
+    border-top-left-radius: [object Object];
+    border-bottom-left-radius: [object Object];
+  }
+
+  .lg\:rounded-t-b-base{
+    border-top-left-radius: [object Object];
+    border-top-right-radius: [object Object];
+  }
+
+  .lg\:rounded-r-b-base{
+    border-top-right-radius: [object Object];
+    border-bottom-right-radius: [object Object];
+  }
+
+  .lg\:rounded-b-b-base{
+    border-bottom-right-radius: [object Object];
+    border-bottom-left-radius: [object Object];
+  }
+
+  .lg\:rounded-l-b-base{
     border-top-left-radius: [object Object];
     border-bottom-left-radius: [object Object];
   }
@@ -47997,6 +48177,22 @@ html {
   }
 
   .lg\:rounded-bl-t-base{
+    border-bottom-left-radius: [object Object];
+  }
+
+  .lg\:rounded-tl-b-base{
+    border-top-left-radius: [object Object];
+  }
+
+  .lg\:rounded-tr-b-base{
+    border-top-right-radius: [object Object];
+  }
+
+  .lg\:rounded-br-b-base{
+    border-bottom-right-radius: [object Object];
+  }
+
+  .lg\:rounded-bl-b-base{
     border-bottom-left-radius: [object Object];
   }
 
@@ -61747,6 +61943,10 @@ html {
     border-radius: [object Object];
   }
 
+  .xl\:rounded-b-base{
+    border-radius: [object Object];
+  }
+
   .xl\:rounded-base{
     border-radius: 24px;
   }
@@ -61895,6 +62095,26 @@ html {
   }
 
   .xl\:rounded-l-t-base{
+    border-top-left-radius: [object Object];
+    border-bottom-left-radius: [object Object];
+  }
+
+  .xl\:rounded-t-b-base{
+    border-top-left-radius: [object Object];
+    border-top-right-radius: [object Object];
+  }
+
+  .xl\:rounded-r-b-base{
+    border-top-right-radius: [object Object];
+    border-bottom-right-radius: [object Object];
+  }
+
+  .xl\:rounded-b-b-base{
+    border-bottom-right-radius: [object Object];
+    border-bottom-left-radius: [object Object];
+  }
+
+  .xl\:rounded-l-b-base{
     border-top-left-radius: [object Object];
     border-bottom-left-radius: [object Object];
   }
@@ -62068,6 +62288,22 @@ html {
   }
 
   .xl\:rounded-bl-t-base{
+    border-bottom-left-radius: [object Object];
+  }
+
+  .xl\:rounded-tl-b-base{
+    border-top-left-radius: [object Object];
+  }
+
+  .xl\:rounded-tr-b-base{
+    border-top-right-radius: [object Object];
+  }
+
+  .xl\:rounded-br-b-base{
+    border-bottom-right-radius: [object Object];
+  }
+
+  .xl\:rounded-bl-b-base{
     border-bottom-left-radius: [object Object];
   }
 

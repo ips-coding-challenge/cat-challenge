@@ -3,11 +3,15 @@ const initialState = {
   popularBreeds: [],
   error: null,
   showModal: false,
+  loading: true,
 };
 
 const reducer = (state = initialState, action) => {
   console.log("action", action);
   switch (action.type) {
+    case "SET_LOADING":
+      console.log(`SET_LOADING CALLED`);
+      return { ...state, loading: action.payload };
     case "SET_BREEDS":
       return { ...state, breeds: action.payload };
     case "SET_POPULAR_BREEDS":
