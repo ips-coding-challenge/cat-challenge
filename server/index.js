@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const admin = require("firebase-admin");
-const serviceAccount = require("./myunsplash-firebase-adminsdk-xxfok-ddbedf2dff.json");
+// const serviceAccount = require("./myunsplash-firebase-adminsdk-xxfok-ddbedf2dff.json");
 const axios = require("axios");
 require("dotenv").config();
 
@@ -11,8 +11,16 @@ const API_URL = "https://api.thecatapi.com/v1";
 axios.defaults.headers.common["x-api-key"] = process.env.API_KEY;
 axios.defaults.baseURL = API_URL;
 
+// admin.initializeApp({
+//   credential: admin.credential.cert(serviceAccount),
+// });
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
+  credential: admin.credential.cert({
+    private_key: process.env.FIREBASE_PRIVATE_KEY,
+    client_email: process.env.FIREBASE_CLIENT_EMAIL,
+    projectId: process.env.FIREBASE_PROJECT_ID,
+  }),
+  databaseURL: "https://myunsplash.firebaseio.com",
 });
 
 const db = admin.firestore();
