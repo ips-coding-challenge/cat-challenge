@@ -30,7 +30,7 @@ function Breed(props) {
     let source = axios.CancelToken.source();
     setSource(source);
     try {
-      const response = await axios.get(`/breeds/${props.id}`, {
+      const response = await axios.get(`/api/breeds/${props.id}`, {
         cancelToken: source.token,
       });
       console.log(`Response.data`, response.data);

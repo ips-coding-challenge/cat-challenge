@@ -28,14 +28,6 @@ const db = admin.firestore();
 const app = express();
 app.use(cors({ origin: true }));
 app.use(bodyParser.json());
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-
-  const path = require("path");
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-  });
-}
 
 app.get("/api/breeds", async (req, res) => {
   try {
@@ -149,6 +141,15 @@ app.post("/api/breeds", async (req, res) => {
     return res.status(400).send("An error occured");
   }
 });
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+
+  const path = require("path");
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+}
 
 app.listen(process.env.PORT || 5000, () => {
   console.log(`Listening on port 5000`);
