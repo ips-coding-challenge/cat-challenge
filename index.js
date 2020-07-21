@@ -28,8 +28,16 @@ const db = admin.firestore();
 const app = express();
 app.use(cors({ origin: true }));
 app.use(bodyParser.json());
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
 
-app.get("/breeds", async (req, res) => {
+  const path = require("path");
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+}
+
+app.get("/api/breeds", async (req, res) => {
   try {
     const response = await axios.get(`/breeds`);
     return res.status(200).send(response.data);
@@ -42,7 +50,7 @@ app.get("/breeds", async (req, res) => {
   }
 });
 
-app.get("/breeds/popular", async (req, res) => {
+app.get("/api/breeds/popular", async (req, res) => {
   try {
     const result = await db
       .collection("breeds")
@@ -59,7 +67,7 @@ app.get("/breeds/popular", async (req, res) => {
   }
 });
 
-app.get("/breeds/:id", async (req, res) => {
+app.get("/api/breeds/:id", async (req, res) => {
   const breedId = req.params.id;
   const params = {
     breed_id: breedId,
@@ -79,7 +87,7 @@ app.get("/breeds/:id", async (req, res) => {
   }
 });
 
-app.get("/images/search", async (req, res) => {
+app.get("/api/images/search", async (req, res) => {
   const params = {
     limit: 8,
     order: "ASC",
@@ -111,7 +119,7 @@ app.get("/images/search", async (req, res) => {
   }
 });
 
-app.post("/breeds", async (req, res) => {
+app.post("/api/breeds", async (req, res) => {
   const { id, name, description } = req.body;
 
   if (!id || !name || !description) {
@@ -141,15 +149,6 @@ app.post("/breeds", async (req, res) => {
     return res.status(400).send("An error occured");
   }
 });
-
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-
-  const path = require("path");
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-  });
-}
 
 app.listen(process.env.PORT || 5000, () => {
   console.log(`Listening on port 5000`);
