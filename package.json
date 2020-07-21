@@ -8,6 +8,7 @@
     "server": "nodemon index.js",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "start": "node index.js",
+    "test-prod": "env NODE_ENV=production && npm run build --prefix client && npm run start",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "dependencies": {
