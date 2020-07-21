@@ -9,47 +9,10 @@ import { useFetchPopularBreeds } from "../hooks/customHooks";
 
 function BreedsHome() {
   const URL = "https://api.thecatapi.com/v1/images/search";
-  // const popularBreeds = useSelector((state) => state.popularBreeds);
   const { popularBreeds, error } = useFetchPopularBreeds();
   const breeds = useSelector((state) => state.breeds);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  // if(error) console.log(``, );
-
-  // const fetchData = useCallback(async () => {
-  //   // I check if i have enough data to get the popular breeds
-  //   try {
-  //     const response = await fetchPopularBreeds();
-  //     console.log(`Response`, response);
-
-  //     if (response.data.length >= 4) {
-  //       dispatch({
-  //         type: "SET_POPULAR_BREEDS",
-  //         payload: response.data.slice(0, 4),
-  //       });
-  //     } else {
-  //       const breeds = Cache.get("breeds") && Cache.get("breeds").data;
-  //       const randomBreeds = breeds.slice(0, 4).map((b) => {
-  //         const newOne = {
-  //           id: b.id,
-  //           name: b.name,
-  //           description: b.description,
-  //           views: 0,
-  //         };
-  //         return newOne;
-  //       });
-  //       console.log(`RandomBreeds`, randomBreeds);
-  //       dispatch({ type: "SET_POPULAR_BREEDS", payload: randomBreeds });
-  //     }
-  //   } catch (e) {
-  //     console.log(`Error`, e);
-  //   }
-  // }, []);
-
-  // useEffect(() => {
-  //   fetchData();
-  // }, []);
 
   const goToBreedPage = (breed) => {
     dispatch({ type: "SET_SELECTED_BREED", payload: breed });
@@ -78,14 +41,15 @@ function BreedsHome() {
         {/* Images */}
         {popularBreeds && popularBreeds.length > 0 && (
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
-            {popularBreeds.slice(0, 4).map((b) => (
+            {popularBreeds.slice(0, 4).map((b, i) => (
               <figure key={b.id} className="flex flex-col w-full">
                 <LazyLoadImage
-                  className="rounded-lg h-32 w-full object-cover cursor-pointer hover:opacity-75 transition-opacity duration-300"
+                  className={`rounded-lg h-32 w-full object-cover cursor-pointer hover:opacity-75 transition-opacity duration-300`}
                   src={`${URL}?breed_id=${b.id}&format=src&limit=1&size=thumb`}
                   alt="cat"
                   effect="opacity"
                   onClick={() => goToBreedPage(b)}
+                  wrapperClassName={`${i === 0 ? "image--special" : ""}`}
                 ></LazyLoadImage>
                 {/* <img
                   className="rounded-lg h-32 w-full object-cover"

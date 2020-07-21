@@ -3,12 +3,12 @@ const initialState = {
   popularBreeds: [],
   error: null,
   showModal: false,
-  loading: true,
+  loading: false,
   selectedBreed: null,
 };
 
 const reducer = (state = initialState, action) => {
-  console.log("action", action);
+  // console.log("action", action);
   switch (action.type) {
     case "SET_LOADING":
       console.log(`SET_LOADING CALLED`);

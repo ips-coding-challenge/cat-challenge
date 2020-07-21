@@ -2,6 +2,7 @@ import React, { useEffect, useCallback, useState } from "react";
 import { useDispatch } from "react-redux";
 import { fetchBreeds, fetchPopularBreeds } from "../api/index";
 import Cache from "../helpers/Cache";
+import axios from "../api/index";
 const EXPIRATION_LONG = 60 * 60 * 1000;
 const EXPIRATION_SHORT = 60 * 1000;
 
@@ -12,26 +13,22 @@ export const useFetchBreeds = () => {
 
   const fetchAllBreeds = useCallback(async () => {
     const cachedBreeds = Cache.get("breeds");
-    console.log(`CachedBreeds`, cachedBreeds);
     if (cachedBreeds && cachedBreeds.expiration > Date.now()) {
       setBreeds(cachedBreeds.data);
       dispatch({ type: "SET_BREEDS", payload: cachedBreeds.data });
-      dispatch({ type: "SET_LOADING", payload: false });
     } else {
       try {
         const response = await fetchBreeds();
-        console.log(`From server`, response.data);
+        console.log(`Response`, response.data);
         Cache.set("breeds", {
           data: response.data,
           expiration: Date.now() + EXPIRATION_LONG,
         });
-        setBreeds(cachedBreeds.data);
+        setBreeds(response.data);
         dispatch({ type: "SET_BREEDS", payload: response.data });
       } catch (e) {
         console.log("Error", e);
         setError(e.message);
-      } finally {
-        dispatch({ type: "SET_LOADING", payload: false });
       }
     }
   }, []);
@@ -50,7 +47,6 @@ export const useFetchPopularBreeds = () => {
 
   const fetchData = useCallback(async () => {
     const cachedPopularBreeds = Cache.get("popular_breeds");
-    console.log(`cachedPopularBreeds`, cachedPopularBreeds);
     if (cachedPopularBreeds && cachedPopularBreeds.expiration > Date.now()) {
       setPopularBreeds(cachedPopularBreeds.data);
       dispatch({

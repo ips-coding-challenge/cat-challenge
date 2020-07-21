@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { Router } from "@reach/router";
 import Home from "./pages/Home";
 import Breed from "./pages/Breed";

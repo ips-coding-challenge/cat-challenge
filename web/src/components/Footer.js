@@ -7,7 +7,14 @@ function Footer() {
       <div className="flex flex-col md:flex-row md:justify-between md:px-4 items-center h-full p-2">
         <img src={Logo} alt="Cat logo" />
         <span className="text-white text-sm">
-          CodingChallenge - devchallenges.io 2020
+          <a
+            href="https://github.com/ips-coding-challenge"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            CodingChallenge
+          </a>{" "}
+          - devchallenges.io 2020
         </span>
       </div>
     </div>

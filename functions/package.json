@@ -10,7 +10,7 @@
     "all": "firebase emulators:start"
   },
   "engines": {
-    "node": "10"
+    "node": "8"
   },
   "dependencies": {
     "axios": "^0.19.2",

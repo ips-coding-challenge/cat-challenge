@@ -9,10 +9,10 @@ function Results({ id, clazz, results, showModal }) {
 
   const incrementPopularity = async (item) => {
     try {
-      await incrementViews(item);
       dispatch({ type: "SET_SELECTED_BREED", payload: item });
       dispatch({ type: "SET_SHOW_MODAL", payload: false });
       navigate(`/breeds/${item.id}`);
+      await incrementViews(item);
     } catch (e) {
       console.log(`Error`, e);
     }

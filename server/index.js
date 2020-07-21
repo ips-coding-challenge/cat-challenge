@@ -1,21 +1,25 @@
-const functions = require("firebase-functions");
-const admin = require("firebase-admin");
 const express = require("express");
 const cors = require("cors");
+const bodyParser = require("body-parser");
+const admin = require("firebase-admin");
+const serviceAccount = require("./myunsplash-firebase-adminsdk-xxfok-ddbedf2dff.json");
 const axios = require("axios");
-const API_URL = "https://api.thecatapi.com/v1";
-const incrementViews = require("./firestore/index");
+require("dotenv").config();
 
-admin.initializeApp();
+const API_URL = "https://api.thecatapi.com/v1";
+
+axios.defaults.headers.common["x-api-key"] = process.env.API_KEY;
+axios.defaults.baseURL = API_URL;
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+});
 
 const db = admin.firestore();
 
-axios.defaults.headers.common["x-api-key"] =
-  "6e4eec08-f056-47a1-8430-afb5743f2f16";
-axios.defaults.baseURL = API_URL;
-
 const app = express();
 app.use(cors({ origin: true }));
+app.use(bodyParser.json());
 
 app.get("/breeds", async (req, res) => {
   try {
@@ -130,12 +134,6 @@ app.post("/breeds", async (req, res) => {
   }
 });
 
-exports.app = functions.https.onRequest(app);
-
-// // Create and Deploy Your First Cloud Functions
-// // https://firebase.google.com/docs/functions/write-firebase-functions
-//
-// exports.helloWorld = functions.https.onRequest((request, response) => {
-//   functions.logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
-// });
+app.listen(5000, () => {
+  console.log(`Listening on port 5000`);
+});

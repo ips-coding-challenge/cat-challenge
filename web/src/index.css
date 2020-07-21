@@ -610,7 +610,7 @@ video {
 }
 
 html {
-  font-family: "Raleway", sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .modal-open {
@@ -627,6 +627,23 @@ html {
   bottom: -5px;
   border: 2px solid #4d270c;
   border-radius: 9999px;
+}
+
+.image--special {
+  position: relative;
+}
+
+.image--special::before {
+  content: "";
+  background-color: #dec68b;
+  position: absolute;
+  top: 17px;
+  left: 0;
+  bottom: 10px;
+  width: 20px;
+  border-radius: 14px;
+  margin-left: -7px;
+  z-index: -1;
 }
 
 /* TRANSITIONS */
@@ -6394,6 +6411,10 @@ html {
   font-family: Raleway, sans-serif;
 }
 
+.font-mont{
+  font-family: Montserrat, sans-serif;
+}
+
 .font-logo{
   font-family: Mystery Quest, sans-serif;
 }
@@ -7940,6 +7961,10 @@ html {
 
 .min-h-0{
   min-height: 0;
+}
+
+.min-h-150{
+  min-height: 150px;
 }
 
 .min-h-full{
@@ -20504,6 +20529,10 @@ html {
     font-family: Raleway, sans-serif;
   }
 
+  .sm\:font-mont{
+    font-family: Montserrat, sans-serif;
+  }
+
   .sm\:font-logo{
     font-family: Mystery Quest, sans-serif;
   }
@@ -22050,6 +22079,10 @@ html {
 
   .sm\:min-h-0{
     min-height: 0;
+  }
+
+  .sm\:min-h-150{
+    min-height: 150px;
   }
 
   .sm\:min-h-full{
@@ -34615,6 +34648,10 @@ html {
     font-family: Raleway, sans-serif;
   }
 
+  .md\:font-mont{
+    font-family: Montserrat, sans-serif;
+  }
+
   .md\:font-logo{
     font-family: Mystery Quest, sans-serif;
   }
@@ -36161,6 +36198,10 @@ html {
 
   .md\:min-h-0{
     min-height: 0;
+  }
+
+  .md\:min-h-150{
+    min-height: 150px;
   }
 
   .md\:min-h-full{
@@ -48726,6 +48767,10 @@ html {
     font-family: Raleway, sans-serif;
   }
 
+  .lg\:font-mont{
+    font-family: Montserrat, sans-serif;
+  }
+
   .lg\:font-logo{
     font-family: Mystery Quest, sans-serif;
   }
@@ -50272,6 +50317,10 @@ html {
 
   .lg\:min-h-0{
     min-height: 0;
+  }
+
+  .lg\:min-h-150{
+    min-height: 150px;
   }
 
   .lg\:min-h-full{
@@ -62837,6 +62886,10 @@ html {
     font-family: Raleway, sans-serif;
   }
 
+  .xl\:font-mont{
+    font-family: Montserrat, sans-serif;
+  }
+
   .xl\:font-logo{
     font-family: Mystery Quest, sans-serif;
   }
@@ -64383,6 +64436,10 @@ html {
 
   .xl\:min-h-0{
     min-height: 0;
+  }
+
+  .xl\:min-h-150{
+    min-height: 150px;
   }
 
   .xl\:min-h-full{

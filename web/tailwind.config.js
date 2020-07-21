@@ -8,7 +8,11 @@ module.exports = {
       },
       fontFamily: {
         rale: ["Raleway", "sans-serif"],
+        mont: ["Montserrat", "sans-serif"],
         logo: ["Mystery Quest", "sans-serif"],
+      },
+      minHeight: {
+        "150": "150px",
       },
       maxHeight: {
         "-200": "200px",
