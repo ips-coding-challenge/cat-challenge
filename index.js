@@ -14,12 +14,11 @@ axios.defaults.baseURL = API_URL;
 // admin.initializeApp({
 //   credential: admin.credential.cert(serviceAccount),
 // });
-let adminKey = process.env.FIREBASE_PRIVATE_KEY;
 admin.initializeApp({
   credential: admin.credential.cert({
-    private_key: adminKey.replace(/\\n/g, "\n"),
     client_email: process.env.FIREBASE_CLIENT_EMAIL,
     projectId: process.env.FIREBASE_PROJECT_ID,
+    private_key: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, "\n"),
   }),
   databaseURL: "https://myunsplash.firebaseio.com",
 });
