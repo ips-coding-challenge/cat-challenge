@@ -83,7 +83,7 @@ function Autocomplete() {
       <div className="flex relative bg-white items-center rounded-base px-4 py-2 md:mt-4 lg:mt-8">
         {/* Input for md screen but without clickHandler which open modal for sm screen */}
         <input
-          className="hidden md:block color-text text-sm outline-none w-full md:text-2xl md:h-12"
+          className="hidden md:block color-text text-sm outline-none w-11/12 md:text-2xl md:h-12"
           type="text"
           placeholder="Search"
           onChange={autocomplete}

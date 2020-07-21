@@ -42,7 +42,7 @@ function BreedsHome() {
         {popularBreeds && popularBreeds.length > 0 && (
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
             {popularBreeds.slice(0, 4).map((b, i) => (
-              <figure key={b.id} className="flex flex-col w-full">
+              <figure key={b.id} className="flex flex-col w-full z-10">
                 <LazyLoadImage
                   className={`rounded-lg h-32 w-full object-cover cursor-pointer hover:opacity-75 transition-opacity duration-300`}
                   src={`${URL}?breed_id=${b.id}&format=src&limit=1&size=thumb`}
