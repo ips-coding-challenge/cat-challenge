@@ -1,4 +1,8 @@
-# More info about that challenge here :
+## You can check the result here ( the project is deployed on Heroky so it may take a little while to display ;) )
+
+https://cat-challenge.herokuapp.com/
+
+## More info about that challenge here :
 
 https://devchallenges.io/challenges/f4NJ53rcfgrP6sBMD2jt
 
