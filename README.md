@@ -1,4 +1,4 @@
-## You can check the result here ( the project is deployed on Heroky so it may take a little while to display ;) )
+## You can check the result here ( the project is deployed on Heroku so it may take a little while to display ;) )
 
 https://cat-challenge.herokuapp.com/
 
